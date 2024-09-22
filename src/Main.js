@@ -1,7 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './App.css'; // CSS styles
 
 function Main() {
+    const navigate = useNavigate();
+
+    const handleBookNow = () => {
+        navigate('/reserve'); // Navigate to the BookingPage
+      };
   return (
     <main>
     
@@ -57,8 +63,8 @@ function Main() {
         <div className="card">
         <img src={`${process.env.PUBLIC_URL}/ShrimpTaco.webp`} alt="Automotive" />
           <h3>Garlic Butter Shrimp Tacos</h3>
-          <p>Shrimp (seasoned with garlic, butter, and lime), Corn tortillas, Shredded cabbage, Avocado slices, Cilantro, Pico de gallo, Lime crema (sour cream, lime juice, garlic powder) and Crumbled cotija cheese</p>
           <br></br>
+          <p>Shrimp (seasoned with garlic, butter, and lime), Corn tortillas, Shredded cabbage, Avocado slices, Cilantro, Pico de gallo, Lime crema (sour cream, lime juice, garlic powder) and Crumbled cotija cheese</p>
           <div className="card-buttons">
             <button className="order-button">Order Now</button>
             <button className="info-button">More Info</button>
@@ -68,10 +74,11 @@ function Main() {
         <div className="card">
         <img src={`${process.env.PUBLIC_URL}/Table.webp`} alt="Automotive" />
           <h3>Reserve a Table</h3>
+          <br></br>
           <p>Craving an unforgettable dining experience? Make it even more special by reserving your table with us today! Whether it’s a casual meal with friends or a celebration with family, we’ve got the perfect spot waiting for you.</p>
-          <br></br><div className="card-buttons">
-            <button className="order-button">Book Now</button>
-            <button className="info-button">More Info</button>
+          <div className="card-buttons">
+          <button onClick={handleBookNow} className="order-button">Book Now</button> {/* Call the navigate function here */}
+          <button className="info-button">More Info</button>
           </div>
         </div>
       </section>
